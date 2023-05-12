@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import de.vw.f73.qwirkle2.move.Move;
 import de.vw.f73.qwirkle2.player.Player;
 import de.vw.f73.qwirkle2.player.PlayerRepository;
 import de.vw.f73.qwirkle2.player.PlayerService;
@@ -17,13 +18,14 @@ public class GameService {
     private PlayerRepository repo;
     private PlayerService playerService;
 
-    private int amount;
-    private List<Player> playersDB;
+    private int amountOfPlayers;
+    private List<Player> playersInDB;
     private StringBuilder playerRegex = new StringBuilder();
     private List<Player> playersGame = new ArrayList<>();
     private String input;
     private String prompt;
     private static int EMPTY_LINES = 20;
+    private List<Move> moves = new ArrayList<>();
 
     public GameService(PlayerRepository repo, PlayerService playerService) {
         this.repo = repo;
@@ -37,24 +39,17 @@ public class GameService {
     }
 
     public void setup() {
-        this.playersDB = this.repo.findAll();
         for (int i = 0; i < EMPTY_LINES; i++) {
             System.out.println();
         }
-        System.out.println("Herzlich Willkommen in der Qwirkle Dokumentation!\n");
-        System.out.println("Alle SpielerInnen:");
-        System.out.printf("%2s  %-12s  %-12s  %-13s %n",
-                "ID", "Name", "Gesamtpunkte", "Stärkster Zug");
-        for (Player player : this.playersDB) {
-            System.out.println(player.toStringDB());
-            this.playerRegex.append(player.getId()).append("|");
-        }
+        System.out.println("Herzlich Willkommen in der Qwirkle Dokumentation!");
+        printAllPlayersInDB();
         this.playerRegex.deleteCharAt(this.playerRegex.length() - 1);
 
-        this.prompt = "\nBitte die Anzahl der Spieler:innen eingeben: ";
+        this.prompt = "Bitte die Anzahl der Spieler:innen eingeben: ";
         int position;
-        this.amount = Integer.parseInt(Inputs.readString(this.prompt, "[2-9]"));
-        for (int i = 0; i < this.amount; i++) {
+        this.amountOfPlayers = Integer.parseInt(Inputs.readString(this.prompt, "[2-9]"));
+        for (int i = 0; i < this.amountOfPlayers; i++) {
             this.prompt = String.format("Bitte ID von Spieler:in %d oder \"Neu\" eingeben: ", i + 1);
             this.input = Inputs.readString(this.prompt, this.playerRegex.toString() + "|Neu");
             if (this.input.equals("Neu")) {
@@ -68,21 +63,45 @@ public class GameService {
                         "notSelectableNotSelectableNotSelectab");
             }
         }
+    }
 
-        System.err.println("setup completed\n");
+    private void printAllPlayersInDB() {
+        this.playersInDB = this.repo.findAll();
+        System.out.println("\nAlle SpielerInnen:");
+        System.out.printf("%3s  %-12s  %-12s  %-13s %n",
+                "ID", "Name", "Gesamtpunkte", "Stärkster Zug");
+        for (Player player : this.playersInDB) {
+            System.out.println(player.toStringDB());
+            this.playerRegex.append(player.getId()).append("|");
+        }
+        System.out.println();
     }
 
     void routine() {
-        // TODO Korrekturen
+        Player player;
+        int points;
         do {
-            for (Player player : this.playersGame) {
+            for (int i = 0; i < this.playersGame.size(); i++) {
+                player = this.playersGame.get(i);
                 printScore();
                 this.prompt = String.format("%s's Punkte: ", player.getName());
-                this.input = Inputs.readString(this.prompt, "[1-9][0-9]?|Ende");
+                this.input = Inputs.readString(this.prompt, "[1-9][0-9]?|Ende|Korrektur");
                 if (this.input.equals("Ende")) {
                     break;
+                } else if (this.input.equals("Korrektur")) {
+                    i = (i + this.playersGame.size() - 1) % this.playersGame.size();
+                    if (this.moves.size() == 0) {
+                        continue;
+                    }
+                    player = this.playersGame.get(i);
+                    player.undoMove(this.moves.get(this.moves.size() - 1));
+                    this.repo.save(player);
+                    this.moves.remove(this.moves.size() - 1);
+                    i = (i + this.playersGame.size() - 1) % this.playersGame.size();
                 } else {
-                    this.playerService.addPoints(player, Integer.parseInt(this.input));
+                    points = Integer.parseInt(this.input);
+                    this.moves.add(new Move(points, player.getGameBiggestTurn(), player.getTotalBiggestTurn()));
+                    this.playerService.addPoints(player, points);
                 }
             }
         } while (!this.input.equals("Ende"));
@@ -97,13 +116,15 @@ public class GameService {
         }
         Collections.sort(this.playersGame);
         printFinalScore();
+        printAllPlayersInDB();
+        System.out.println();
         reset();
     }
 
     private void reset() {
         this.playersGame = new ArrayList<>();
-        this.amount = 0;
-        this.playersDB = null;
+        this.amountOfPlayers = 0;
+        this.playersInDB = null;
         this.playerRegex = new StringBuilder();
         this.input = null;
         this.prompt = null;

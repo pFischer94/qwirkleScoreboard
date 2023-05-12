@@ -1,5 +1,6 @@
 package de.vw.f73.qwirkle2.player;
 
+import de.vw.f73.qwirkle2.move.Move;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -87,13 +88,21 @@ public class Player implements Comparable<Player> {
     }
 
     public String toStringDB() {
-        return String.format("%2d  %-12s  %12d  %13d",
+        return String.format("%3d  %-12s  %12d  %13d",
                 this.id, this.name, this.totalPoints, this.totalBiggestTurn);
     }
 
     public String toStringGame() {
         return String.format("%-12s  %6d  %4d  %13d",
                 this.name, this.gamePoints, this.turns, this.gameBiggestTurn);
+    }
+
+    public void undoMove(Move move) {
+        this.turns--;
+        this.gamePoints -= move.getPoints();
+        this.totalPoints -= move.getPoints();
+        this.gameBiggestTurn = move.getPreviousGameBiggestTurn();
+        this.totalBiggestTurn = move.getPreviousTotalBiggestTurn();
     }
 
     @Override
