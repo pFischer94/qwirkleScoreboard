@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import de.vw.f73.qwirkle2.move.Move;
@@ -14,6 +15,9 @@ import de.vw.f73.qwirkle2.utils.Inputs;
 
 @Service
 public class GameService {
+
+    @Value("${valueName}")
+    String valueName;
 
     private PlayerRepository repo;
     private PlayerService playerService;
@@ -33,6 +37,8 @@ public class GameService {
     }
 
     public void start() {
+        System.out.println(this.valueName);
+
         setup();
         routine();
         end();

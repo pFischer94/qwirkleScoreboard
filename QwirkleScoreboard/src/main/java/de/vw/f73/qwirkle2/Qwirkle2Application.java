@@ -5,8 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import de.vw.f73.qwirkle2.game.GameService;
-import de.vw.f73.qwirkle2.utils.Inputs;
-import jakarta.annotation.PostConstruct;
 
 @SpringBootApplication
 public class Qwirkle2Application {
@@ -23,18 +21,23 @@ public class Qwirkle2Application {
         // RestTemplate ruft auf beliebige (externe) Adressen auf --> muss absolut sein
 //        RestTemplate restTemplate = new RestTemplate();
 //        restTemplate.getForObject("http://localhost:8080/game/start", Void.class);
+
+        // funktioniert nicht, weil dann nicht gameService aus Spring context genutzt wird
+//        Qwirkle2Application app = new Qwirkle2Application();
+//        app.start();
     }
 
-    @PostConstruct
-    private void start() {
-        String prompt;
-        String input = "Ja";
-        do {
-            this.gameService.start();
-            prompt = "Nochmal? ";
-            input = Inputs.readString(prompt);
-        } while (input.equals("Ja"));
-        System.out.println("\nAuf Wiedersehen!\n\n");
-    }
+    // hier aktivieren für AutoStart auf Konsole
+//    @PostConstruct
+//    private void start() {
+//        String prompt;
+//        String input = "Ja";
+//        do {
+//            this.gameService.start();
+//            prompt = "Nochmal? ";
+//            input = Inputs.readString(prompt);
+//        } while (input.equals("Ja"));
+//        System.out.println("\nAuf Wiedersehen!\n\n");
+//    }
 
 }
