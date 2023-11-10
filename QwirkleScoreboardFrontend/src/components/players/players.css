@@ -1,0 +1,120 @@
+.tables_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding-bottom: 2em;
+    padding-top: 0.5em;
+}
+
+.left {
+    width: 50%;
+    display: flex;
+    justify-content: right;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    justify-content: left;
+}
+
+.table-container-db {
+    display: block;
+    border-right: 1px solid;
+    flex-direction: column;
+    justify-content: right;
+    padding: 0 1em 1em 2em;
+}
+
+.table-container-game {
+    display: block;
+    flex-direction: column;
+    justify-content: left;
+    padding: 0 2em 1em 1em;
+}
+
+h3 {
+    text-align: left;
+    margin: 15px;
+    justify-self: center;
+}
+
+
+  
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0 0.5em;
+    /* border-right: 1px solid; */
+}
+  
+th {
+    padding-bottom: 0.5em;
+}
+
+.updown {
+    padding: 0 0.1em;
+    width: 3.6em;
+}
+  
+tr {
+    border-bottom: 1px solid;
+}
+  
+tr.last {
+    border: 0px
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgb(50, 50, 50);
+}
+
+.table-container-db tbody tr:first-child .id {
+    border-radius: 25px 0 0 25px;
+}
+
+.table-container-db tbody tr:first-child .id, .table-container-db tbody tr:first-child .name, .table-container-db tbody tr:first-child .points {
+    background-color: rgba(255, 255, 0, 0.8);
+    color: black;
+}
+
+.id, .points, .new_button {
+    text-align: right;
+}
+
+.id {
+    width:2.1em;
+}
+
+.name {
+    width: 6em;
+    text-align: left;
+}
+
+.points {
+    width: 4.5em;
+}
+
+form {
+    text-align: left;
+}
+  
+input {
+    margin: 0 10px 0 0;
+    width: 15em;
+}
+  
+.new_button {
+    width: 54.79px;
+}
+  
+.game_table_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 1.7em;
+}

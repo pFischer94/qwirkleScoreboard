@@ -1,4 +1,4 @@
-import { usePlayers } from "../hooks/usePlayers";
+import { usePlayers } from "../../hooks/usePlayers";
 import { DBTable } from "./DBTable";
 import { GameTable } from "./GameTable";
 import "./players.css"
@@ -24,8 +24,6 @@ export function Players(
 
     return (
         <>
-            <h1>Qwirkle Scoreboard</h1>
-            <h1>Players</h1>
             <div className="tables_container">
                 <DBTable/>
                 <GameTable/>

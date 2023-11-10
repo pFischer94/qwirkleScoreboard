@@ -1,0 +1,28 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5em;
+    margin: 0 auto;
+}
+
+.stop {
+    color: red;
+}
+
+.player-bar-container {
+    display: flex;
+    flex-direction: row;
+    /* width: 90%; */
+    justify-content: center;
+}
+
+.player-card {
+    display: flex;
+    flex-direction: column;
+    height: 8em;
+    border: 1px solid;
+    min-width: 10em;
+    /* width: auto; */
+}

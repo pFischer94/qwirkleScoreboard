@@ -10,8 +10,10 @@ export function usePlayers() {
 
     useEffect(() => {
         const fetch = async () => {
-          const avaiableInvoices = await getAllPlayers();
-          dispatch(setPlayersDB(avaiableInvoices));
+          const players = await getAllPlayers();
+          players.sort((a, b) => b.totalBiggestTurn - a. totalBiggestTurn);
+          players.sort((a, b) => b.totalPoints - a. totalPoints);
+          dispatch(setPlayersDB(players));
         };
         fetch();
     }, []);
