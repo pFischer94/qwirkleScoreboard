@@ -1,9 +1,13 @@
 package de.vw.f73.qwirkle2.game;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/game")
+@CrossOrigin("http://localhost:5173")
 public class GameController {
 
     private GameService gameService;
@@ -12,9 +16,14 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @GetMapping("/game/start")
+    @GetMapping("/start")
     public void start() {
         this.gameService.start();
+    }
+
+    @GetMapping("/startFronend")
+    public void startFrontend() {
+
     }
 
 }

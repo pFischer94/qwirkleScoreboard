@@ -3,7 +3,9 @@ package de.vw.f73.qwirkle2.player;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,14 +20,25 @@ public class PlayerController {
         this.playerRepo = playerRepo;
     }
 
-//    @GetMapping
-//    public List<Player> getAllPlayers() {
-//        return this.playerRepo.findAll();
-//    }
+    @GetMapping
+    public List<Player> getAllPlayers() {
+        return this.playerRepo.findAll();
+    }
 
     @PostMapping
-    public List<Player> postPlayers(List<Player> players) {
-        return this.playerRepo.saveAll(players);
+    public Player postPlayer(@RequestBody Player player) {
+        System.out.println(player.getName() + " angelegt");
+        return this.playerRepo.save(player);
+    }
+
+//    @PostMapping
+//    public List<Player> postPlayers(List<Player> players) {
+//        return this.playerRepo.saveAll(players);
+//    }
+
+    @PostMapping("/addPoints")
+    public Player addPoints(Player player, int points) {
+        return null;
     }
 
 }

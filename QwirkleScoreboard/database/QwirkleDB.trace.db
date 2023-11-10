@@ -1,0 +1,4 @@
+2023-11-05 22:09:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE FROM player WHERE id > 253\000d\000a[*]SELECT * FROM PLAYER"; SQL statement:
+DELETE FROM player WHERE id > 253
+SELECT * FROM PLAYER [42000-214]
