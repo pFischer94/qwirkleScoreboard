@@ -14,15 +14,28 @@
 .player-bar-container {
     display: flex;
     flex-direction: row;
-    /* width: 90%; */
+    justify-content: space-between;
+    width: 100%;
     justify-content: center;
 }
 
 .player-card {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    height: 8em;
+    justify-content: center;
+    height: 7em;
+    width: 8em;
     border: 1px solid;
-    min-width: 10em;
-    /* width: auto; */
+    padding: auto 1em;
+    gap: 0.2em;
+}
+
+h2 {
+    text-align: center;
+    margin: 0;
+}
+
+h4 {
+    margin: 0;
 }

@@ -7,9 +7,9 @@ type Props = {
 export function PlayerCard({ player }: Props) {
     return (
         <div className="player-card">
-            {player.name}
-            {player.gamePoints}
-            {player.gameBiggestTurn}
+            <h2>{player.name}</h2>
+            <span>Punkte: {player.gameBiggestTurn}</span>
+            <span>Kombo: {player.gamePoints}</span>
         </div>
     )
 }
