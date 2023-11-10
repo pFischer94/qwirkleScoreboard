@@ -119,4 +119,13 @@ public class Player implements Comparable<Player> {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Player [id=" + this.id + ", name=" + this.name + ", gamePoints=" + this.gamePoints + ", totalPoints="
+                + this.totalPoints
+                + ", turns=" + this.turns + ", gameBiggestTurn=" + this.gameBiggestTurn + ", totalBiggestTurn="
+                + this.totalBiggestTurn
+                + "]";
+    }
+
 }

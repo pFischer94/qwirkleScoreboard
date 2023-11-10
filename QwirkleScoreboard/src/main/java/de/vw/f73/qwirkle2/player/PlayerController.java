@@ -27,8 +27,10 @@ public class PlayerController {
 
     @PostMapping
     public Player postPlayer(@RequestBody Player player) {
-        System.out.println(player.getName() + " angelegt");
-        return this.playerRepo.save(player);
+        System.out.println("postPlayer output:");
+        Player output = this.playerRepo.save(player);
+        System.out.println(output);
+        return output;
     }
 
 //    @PostMapping
