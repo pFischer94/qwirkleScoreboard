@@ -1,4 +1,4 @@
-form {
+.last form {
     padding-left: 0.4em;
 }
 
@@ -9,6 +9,7 @@ input#name {
 
 button.new {
     padding-bottom: 12px;
+    margin-bottom: 0.4em;
 }
 
 tbody tr:nth-child(even) {

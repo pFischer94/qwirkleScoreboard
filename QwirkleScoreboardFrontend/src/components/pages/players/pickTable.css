@@ -5,6 +5,7 @@ div.start {
 
 button.start {
     margin-top: 0.6em;
+    margin-right: 1px;
     padding: 0;
     width: 8em;
     background-color: green;

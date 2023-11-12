@@ -1,7 +1,7 @@
-.tables_container {
+/* .tables_container {
     display: flex;
     flex-direction: row;
-    /* flex-wrap: nowrap; */
+    flex-wrap: nowrap;
     justify-content: center;
     padding-bottom: 2em;
     padding-top: 0.5em;
@@ -116,4 +116,4 @@ input#start {
     align-items: center;
     justify-content: left;
     gap: 1.7em;
-}
+} */

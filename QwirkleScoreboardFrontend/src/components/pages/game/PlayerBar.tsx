@@ -1,24 +1,19 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { usePlayers } from "../../../hooks/usePlayers"
 import { PlayerCard } from "./PlayerCard";
-// import "./game.css"
+import "./playerBar.css"
 
 // TODO restructure GamePage like PlayerPage
 
 export function PlayerBar() {
     const { playersGame } = usePlayers();
-
-    useEffect(() => {
-        if (playersGame.length === 0) {
-            // navigate("/");
-        }
-    })
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <div className="left">
-            <div className="player-bar-container">
-                {playersGame.map((p, index) => <PlayerCard index={index} player={p}/>)}
-            </div>
+        <div className="player-bar-container">
+            {playersGame.map((p, index) => 
+                <PlayerCard  key={index} index={index} player={p} activeIndex={activeIndex} setActiveIndex={setActiveIndex}/>
+            )}
         </div>
     )
 }

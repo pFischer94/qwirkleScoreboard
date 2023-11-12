@@ -20,13 +20,14 @@
     justify-content: left;
 } */
 
-.player-bar-container {
+/* .player-bar-container {
     display: flex;
     flex-direction: column;
+    background-color: red;
     justify-content: right;
     padding: 0 1em 1em 2em;
     gap: 1em;
-}
+} */
 
 .game-bar-container {
     display: flex;
@@ -42,6 +43,7 @@
 .player-card {
     display: flex;
     /* flex: 1; */
+    color: red;
     flex-direction: column;
     justify-content: center;
     align-items: center;

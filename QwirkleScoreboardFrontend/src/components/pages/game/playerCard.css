@@ -1,0 +1,27 @@
+.player-card {
+    border: 4px solid;
+    width: 10em;
+    background-color: rgb(50, 50, 50);
+}
+
+h2 {
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.player-card form {
+    margin-bottom: 10px;
+}
+
+.player-card input {
+    width: 1.5em;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px dotted;
+    background-color: transparent;
+}
+
+.player-card input:focus-visible {
+    outline: 0;
+    font-size: 15px;
+}
