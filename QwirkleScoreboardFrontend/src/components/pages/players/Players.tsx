@@ -1,7 +1,7 @@
-import { usePlayers } from "../../hooks/usePlayers";
+import { usePlayers } from "../../../hooks/usePlayers";
 import { DBTable } from "./DBTable";
-import { GameTable } from "./GameTable";
-import "./players.css"
+import { PickTable } from "./PickTable";
+// import "./players.css"
 
 // type Props = {
 //     players: Player[];
@@ -26,7 +26,7 @@ export function Players(
         <>
             <div className="tables_container">
                 <DBTable/>
-                <GameTable/>
+                <PickTable/>
             </div>
         </>
     )

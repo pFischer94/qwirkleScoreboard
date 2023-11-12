@@ -1,7 +1,7 @@
 .tables_container {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    /* flex-wrap: nowrap; */
     justify-content: center;
     padding-bottom: 2em;
     padding-top: 0.5em;
@@ -102,7 +102,7 @@ form {
     text-align: left;
 }
   
-input {
+input#start {
     margin: 0 10px 0 0;
     width: 15em;
 }

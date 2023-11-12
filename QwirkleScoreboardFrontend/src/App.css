@@ -12,12 +12,20 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  width: 55px;
+  height: 42px;
 }
 button:hover {
   border-color: #646cff;
 }
 button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+html {
+  height: 100vh;
+  /* overflow: hidden; */
+  /* border: 1px solid; */
 }
 
 #root {
@@ -30,7 +38,8 @@ button:focus, button:focus-visible {
 body {
   margin: 1.3em;
   min-width: 320px;
-  min-height: 100vh;
+  /* min-height: 100%; */
+  border: 1px solid;
 }
 
 :root {

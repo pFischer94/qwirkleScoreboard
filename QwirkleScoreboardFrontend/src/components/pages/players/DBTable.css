@@ -1,0 +1,24 @@
+form {
+    padding-left: 0.4em;
+}
+
+input#name {
+    width: 8em;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgb(50, 50, 50);
+}
+
+tbody tr:first-child .id {
+    border-radius: 10px 0 0 10px;
+}
+
+tbody tr:first-child .top-zug {
+    border-radius: 0 10px 10px 0;
+}
+
+.db tbody tr:first-child .id, .db tbody tr:first-child .name, .db tbody tr:first-child .points, .db tbody tr:first-child .top-zug {
+    background-color: rgba(255, 255, 0, 0.8);
+    color: black;
+}

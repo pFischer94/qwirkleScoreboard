@@ -23,12 +23,18 @@ const shopSlicer = createSlice({
             state.playersDB.push(action.payload);
             return state;
         },
+        setPlayersGame: (state, action: PayloadAction<Player[]>) => {
+            state.playersGame = action.payload;
+            return state;
+        },
         insertPlayerGame: (state, action: PayloadAction<Player>) => {
             state.playersGame.push(action.payload);
+            localStorage.setItem("playersGame", JSON.stringify(state.playersGame));
             return state;
         },
         deletePlayerGame: (state, action: PayloadAction<Player>) => {
             state.playersGame = state.playersGame.filter(p => p.id !== action.payload.id);
+            localStorage.setItem("playersGame", JSON.stringify(state.playersGame));
             return state;
         },
         swapPlayerGame: (state, action: PayloadAction<number>) => {
@@ -36,10 +42,11 @@ const shopSlicer = createSlice({
             const tmp = state.playersGame[index];
             state.playersGame[index] = state.playersGame[index - 1];
             state.playersGame[index - 1] = tmp;
+            localStorage.setItem("playersGame", JSON.stringify(state.playersGame));
             return state;
         },
     }, 
 });
 
-export const { setPlayersDB, insertPlayerDB, insertPlayerGame, deletePlayerGame, swapPlayerGame } = shopSlicer.actions;
+export const { setPlayersDB, insertPlayerDB, insertPlayerGame, deletePlayerGame, swapPlayerGame, setPlayersGame } = shopSlicer.actions;
 export const reducer = shopSlicer.reducer;
