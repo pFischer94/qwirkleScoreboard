@@ -8,6 +8,7 @@ export function withSplit<P extends JSX.IntrinsicAttributes>(
 
         return (
             <main>
+                <h1>Qwirkle Scoreboard</h1>
                 <div className="test">
                     <div className="left">
                         <Component1 {...props}/>

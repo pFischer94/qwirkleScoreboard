@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { GameTable } from "./GameTable";
-// import "./game.css"
 
 export function GameBar() {
     const navigate = useNavigate();

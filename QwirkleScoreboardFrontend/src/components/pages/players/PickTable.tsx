@@ -33,7 +33,6 @@ export function PickTable() {
         <div className="table-container">
             <div className="table-header">
                 <h3>Dieses Spiel</h3>
-                {playersGame.length > 1 && <button className="start" onClick={startGame}>Start</button>}
             </div>
             <table>
                 <thead>
@@ -62,6 +61,9 @@ export function PickTable() {
                         )})}
                 </tbody>
             </table>
+            <div className="start">
+                {playersGame.length > 1 && <button className="start" onClick={startGame}>Spiel starten</button>}
+            </div>
         </div>
     )
 }

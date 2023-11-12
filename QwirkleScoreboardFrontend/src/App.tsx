@@ -7,7 +7,6 @@ import { router } from './route/routeConfig';
 function App() {
   return (
     <Provider store={store}>
-      <h1>Qwirkle Scoreboard</h1>
       <RouterProvider router={router} />
     </Provider>
   )

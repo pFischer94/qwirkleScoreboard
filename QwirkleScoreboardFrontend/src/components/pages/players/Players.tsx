@@ -22,6 +22,8 @@ export function Players(
 // }: Props
 ) {
 
+    // TODO remove unused code (css's, components)
+
     return (
         <>
             <div className="tables_container">

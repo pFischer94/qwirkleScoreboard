@@ -3,8 +3,9 @@ import { usePlayers } from "../../../hooks/usePlayers"
 import { PlayerCard } from "./PlayerCard";
 // import "./game.css"
 
+// TODO restructure GamePage like PlayerPage
+
 export function PlayerBar() {
-    // FIXME reload deletes playersGame
     const { playersGame } = usePlayers();
 
     useEffect(() => {

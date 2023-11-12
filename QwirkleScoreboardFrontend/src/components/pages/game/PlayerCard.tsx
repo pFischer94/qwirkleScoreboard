@@ -24,10 +24,9 @@ export function PlayerCard({ index, player }: Props) {
             {index === 0 ?
                 <form onSubmit={e => sendTurn(e)}>
                     <label>Punkte: </label>
-                    <input value={points} /* autoFocus */ onChange={e => setPoints((e.target.value))}></input>
+                    <input value={points} autoFocus onChange={e => setPoints((e.target.value))}></input>
                 </form> :
                 <span>Punkte: {player.gameBiggestTurn}</span>}
-            {/* <span>Kombo: {player.gamePoints}</span> */}
         </div>
     )
 }

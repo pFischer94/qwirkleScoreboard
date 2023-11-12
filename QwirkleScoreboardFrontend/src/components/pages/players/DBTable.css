@@ -3,14 +3,19 @@ form {
 }
 
 input#name {
-    width: 8em;
+    width: 9em;
+    margin-right: 2.3em;
+}
+
+button.new {
+    padding-bottom: 12px;
 }
 
 tbody tr:nth-child(even) {
     background-color: rgb(50, 50, 50);
 }
 
-tbody tr:first-child .id {
+tbody tr:first-child .name {
     border-radius: 10px 0 0 10px;
 }
 

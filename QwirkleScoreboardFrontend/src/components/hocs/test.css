@@ -35,7 +35,7 @@
 }
 
 h3 {
-    margin: 0.8em;
+    margin: 0.8em 0;
 }
 
 table {
@@ -78,6 +78,6 @@ tr.last {
     background-color: #242424;
 }
 
-.new {
+td.new {
     padding-left: 0.5em;
 }
