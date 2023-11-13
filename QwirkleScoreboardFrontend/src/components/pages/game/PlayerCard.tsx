@@ -21,8 +21,10 @@ export function PlayerCard({ index, player, activeIndex, setActiveIndex }: Props
             console.log(points);
             setPoints("");
             if (activeIndex < playersGame.length - 1) {
+                localStorage.setItem("activeIndex", activeIndex + 1 + "");
                 setActiveIndex(activeIndex + 1);
             } else {
+                localStorage.setItem("activeIndex", "0");
                 setActiveIndex(0);
             }
         }
@@ -30,8 +32,8 @@ export function PlayerCard({ index, player, activeIndex, setActiveIndex }: Props
 
     return (
         <div className="player-card" style={{
-            backgroundColor: index === activeIndex ? "green" : '',
-            transform: index === activeIndex ? "scale(1.1) translate(-8px)" : '',
+            backgroundColor: index === activeIndex ? "rgb(70, 70, 70)" : '',
+            transform: index === activeIndex ? "scale(1.15) translate(-12px)" : '',
         }}>
             <h2>{player.name}</h2>
             {index === activeIndex ?
