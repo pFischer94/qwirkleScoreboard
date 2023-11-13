@@ -5,6 +5,13 @@ export function withSplit<P extends JSX.IntrinsicAttributes>(
   Component2: React.ComponentType<P>,
 ) {
     function WithRoot(props: P) {
+        // useEffect(() => {
+        //     window.addEventListener("beforeunload", e => e.preventDefault());
+
+        //     return () => {
+        //         window.removeEventListener("beforeunload", e => e.preventDefault());
+        //     };
+        // })
 
         return (
             <main>

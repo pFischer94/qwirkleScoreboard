@@ -3,14 +3,29 @@ div.start {
     justify-content: end;
 }
 
-button.start {
+button.start, button.stop {
     margin-top: 0.6em;
-    margin-right: 1px;
+    margin-right: 57px;
     padding: 0;
     width: 8em;
+}
+
+button.start {
     background-color: green;
 }
 
-button.start:hover {
+button.stop {
+    background-color: rgba(200, 0, 0, 1);
+}
+
+button.start:hover, button.stop:hover {
     border-color: rgba(255, 255, 0, 0.8);
-  }
+}
+
+tbody tr:last-child .name {
+    border-radius: 0 0 0 10px;
+}
+
+tbody tr:last-child .top-zug {
+    border-radius: 0 10px 10px 0;
+}

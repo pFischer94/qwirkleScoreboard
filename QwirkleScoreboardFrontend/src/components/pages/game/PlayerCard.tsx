@@ -1,44 +1,36 @@
 import { useState } from "react";
 import { Player } from "../../../api/playersApi";
-import { usePlayers } from "../../../hooks/usePlayers";
+import { useScoreboard } from "../../../hooks/useScoreboard";
 import "./playerCard.css"
 
 type Props = {
     index: number;
     player: Player;
-    activeIndex: number;
-    setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export function PlayerCard({ index, player, activeIndex, setActiveIndex }: Props) {
+export function PlayerCard({ index, player }: Props) {
     const [points, setPoints] = useState<string>("");
-    const { playersGame } = usePlayers();
+    const { activeIndex, incrementActiveIndex } = useScoreboard();
 
     const sendTurn = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const num = Number(points);
         if (num >= 0 && num < 85) {
-            console.log(points);
+            // console.log("sendTurn points: " + points);
             setPoints("");
-            if (activeIndex < playersGame.length - 1) {
-                localStorage.setItem("activeIndex", activeIndex + 1 + "");
-                setActiveIndex(activeIndex + 1);
-            } else {
-                localStorage.setItem("activeIndex", "0");
-                setActiveIndex(0);
-            }
+            incrementActiveIndex();
         }
     };
 
     return (
         <div className="player-card" style={{
             backgroundColor: index === activeIndex ? "rgb(70, 70, 70)" : '',
-            transform: index === activeIndex ? "scale(1.15) translate(-12px)" : '',
+            transform: index === activeIndex ? "scale(1.15)" : '',
         }}>
             <h2>{player.name}</h2>
             {index === activeIndex ?
                 <form onSubmit={e => sendTurn(e)}>
-                    <label>Punkte: </label>
+                    <label style={{"marginRight" : "2px"}} >Punkte:</label>
                     <input value={points} autoFocus onChange={e => setPoints((e.target.value))}></input>
                 </form> :
                 <form>

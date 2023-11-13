@@ -4,7 +4,7 @@ import { withSplit } from "../components/hocs/Test";
 import { DBTable } from "../components/pages/players/DBTable";
 import { PickTable } from "../components/pages/players/PickTable";
 import { PlayerBar } from "../components/pages/game/PlayerBar";
-import { GameTable } from "../components/pages/game/GameTable";
+import { GameBar } from "../components/pages/game/GameBar";
 
 export const router = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/game",
-    Component: withSplit(PlayerBar, GameTable),
+    Component: withSplit(PlayerBar, GameBar),
   },
   {
     path: "/*",

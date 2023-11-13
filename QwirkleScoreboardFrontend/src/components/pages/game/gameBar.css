@@ -1,0 +1,44 @@
+div.game-bar-container {
+    display: flex;
+    flex-direction: column;
+}
+
+div.control {
+    --radius: 20px;
+    --colorValue: 180;
+    --colorBorders: rgb(var(--colorValue), var(--colorValue), var(--colorValue), 100%);
+    --widthBorders: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+    margin-left: 57px;
+}
+
+button.back {
+    border-radius: var(--radius) 0 0 0;
+    border: var(--widthBorders) solid var(--colorBorders);
+    border: var(--widthBorders) solid var(--colorBorders);
+    background-color: blue;
+}
+
+button.skip {
+    border-radius: 0 var(--radius) 0 0;
+    border: var(--widthBorders) solid var(--colorBorders);
+    border: var(--widthBorders) solid var(--colorBorders);
+    background-color: blue;
+}
+
+button.cancel {
+    border-radius: 0 0 0 var(--radius);
+    border: var(--widthBorders) solid var(--colorBorders);
+    border: var(--widthBorders) solid var(--colorBorders);
+    background-color: red;
+}
+
+button.finish {
+    border-radius: 0 0 var(--radius) 0;
+    border: var(--widthBorders) solid var(--colorBorders);
+    border: var(--widthBorders) solid var(--colorBorders);
+    background-color: green;
+}

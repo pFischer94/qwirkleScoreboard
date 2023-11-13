@@ -14,13 +14,14 @@ h2 {
 }
 
 .player-card input {
-    width: 1.5em;
+    width: 17px;
     text-align: center;
     border: 0;
+    border-bottom: 1px solid;
     background-color: transparent;
+    font-size: 15px;
 }
 
 .player-card input:focus-visible {
     outline: 0;
-    font-size: 15px;
 }

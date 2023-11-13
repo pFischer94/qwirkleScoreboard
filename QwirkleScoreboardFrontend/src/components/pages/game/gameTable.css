@@ -1,0 +1,25 @@
+h3.right {
+    margin-left: 63px;
+}
+
+table.game {
+    margin-left: 57px;
+    margin-right: auto;
+}
+
+tr {
+    height: 45px;
+}
+
+tbody.game tr:first-child .name, tbody.game tr:first-child .points, tbody.game tr:first-child .top-zug {
+    background-color: rgba(255, 255, 0, 0.8);
+    color: black;
+}
+
+tbody.game tr:last-child .name {
+    border-radius: 0 0 0 10px;
+}
+
+tbody.game tr:last-child .top-zug {
+    border-radius: 0 10px 10px 0;
+}
