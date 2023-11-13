@@ -76,9 +76,9 @@ export function DBTable() {
                     </tr>
                 </thead>
                 <tbody className="db">
-                    {playersDB.map(p => {
+                    {playersDB.map((p, index) => {
                         return (
-                            <tr key={p.id}>
+                            <tr className={index % 2 === 0 ? "darker" : "none"} key={p.id}>
                                 {/* <td className="id">{p.id}</td> */}
                                 <td className="name">{p.name}</td>
                                 <td className="points">{p.totalPoints}</td>
@@ -86,7 +86,7 @@ export function DBTable() {
                                 <td className="updown">{!isRunning && <button onClick={(e) => select(e, p)}>{"→"}</button>}</td>
                             </tr>
                         )})}
-                        <tr className="last" style={{backgroundColor: playersDB.length % 2 === 0 && !hasInput ? '#242424' : ''}} >
+                        <tr className={playersDB.length % 2 === 0 && hasInput ? "darker" : ""} >
                             <td colSpan={3}>
                                 {hasInput &&
                                     <form onSubmit={handleAddNewPlayerButton}>

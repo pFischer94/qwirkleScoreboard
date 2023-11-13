@@ -61,7 +61,7 @@ export function PickTable() {
                 <tbody>
                     {playersGame.map((p, index) => {
                         return (
-                            <tr key={index} className={index == playersGame.length - 1 ? "last" : "none"}>
+                            <tr key={index} className={index % 2 === 0 ? "darker" : "none"}>
                                 <td className="updown">{!isRunning && <button onClick={(e) => deselect(e, p)}>{"←"}</button>}</td>
                                 {/* <td className="id">{p.id}</td> */}
                                 <td className="name">{p.name}</td>

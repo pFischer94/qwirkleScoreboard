@@ -33,6 +33,14 @@ public class PlayerController {
         return output;
     }
 
+    @PostMapping("/end")
+    public List<Player> postPlayers(@RequestBody List<Player> players) {
+        System.out.println("postPlayers output:");
+        List<Player> output = this.playerRepo.saveAll(players);
+        System.out.println(output);
+        return output;
+    }
+
 //    @PostMapping
 //    public List<Player> postPlayers(List<Player> players) {
 //        return this.playerRepo.saveAll(players);

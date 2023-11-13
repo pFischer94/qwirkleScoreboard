@@ -47,7 +47,7 @@ tbody tr {
     height: 45px;
 }
 
-tr.last {
+tr:last-child {
     border-bottom: 0;
 }
 

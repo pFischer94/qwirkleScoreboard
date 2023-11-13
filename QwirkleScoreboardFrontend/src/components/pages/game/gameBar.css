@@ -16,28 +16,21 @@ div.control {
 }
 
 button.back {
-    border-radius: var(--radius) 0 0 0;
-    border: var(--widthBorders) solid var(--colorBorders);
-    border: var(--widthBorders) solid var(--colorBorders);
-    background-color: blue;
-}
-
-button.skip {
-    border-radius: 0 var(--radius) 0 0;
+    border-radius: var(--radius) 0 0 var(--radius);
     border: var(--widthBorders) solid var(--colorBorders);
     border: var(--widthBorders) solid var(--colorBorders);
     background-color: blue;
 }
 
 button.cancel {
-    border-radius: 0 0 0 var(--radius);
+    border-radius: 0 0 0 0;
     border: var(--widthBorders) solid var(--colorBorders);
     border: var(--widthBorders) solid var(--colorBorders);
     background-color: red;
 }
 
 button.finish {
-    border-radius: 0 0 var(--radius) 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
     border: var(--widthBorders) solid var(--colorBorders);
     border: var(--widthBorders) solid var(--colorBorders);
     background-color: green;

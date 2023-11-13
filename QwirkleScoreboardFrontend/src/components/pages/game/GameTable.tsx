@@ -23,9 +23,13 @@ export function GameTable() {
                     </tr>
                 </thead>
                 <tbody className="game">
-                    {playersGame.map((p, index) => {
+                    {playersGame
+                            .slice()
+                            .sort((a, b) => b.gameBiggestTurn - a. gameBiggestTurn)
+                            .sort((a, b) => b.gamePoints - a. gamePoints)
+                            .map((p, index) => {
                         return (
-                            <tr key={index} className={index == playersGame.length - 1 ? "last" : "none"}>
+                            <tr key={index} className={(index + playersGame.length) % 2 !== 0 ? "darker" : "none"}>
                                 {/* <td className="updown"><button onClick={(e) => deselect(e, p)}>{"←"}</button></td> */}
                                 {/* <td className="id">{p.id}</td> */}
                                 <td className="name">{p.name}</td>

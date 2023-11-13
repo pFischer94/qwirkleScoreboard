@@ -24,3 +24,8 @@ export async function postNewPlayer(player: Player) : Promise<Player> {
     // console.log(response);
     return response.data;
 }
+
+export async function updatePlayers(players: Player[]) : Promise<Player[]> {
+    const response = await axios.post(BASE_URL + "/end", players);
+    return response.data;
+}

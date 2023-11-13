@@ -1,12 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { useScoreboard } from "../../../hooks/useScoreboard"
 import { PlayerCard } from "./PlayerCard";
 import "./playerBar.css"
-
-// TODO restructure GamePage like PlayerPage
-// TODO end game, localstorage.removeItems
+import { useEffect } from "react";
 
 export function PlayerBar() {
     const { playersGame } = useScoreboard();
+    const navigate = useNavigate();
+
+        useEffect(() => {
+            if (playersGame.length === 0) {
+                navigate("/");
+            }
+        }, []);
 
     // useEffect(() => {
     //     const response = localStorage.getItem("activeIndex");
