@@ -1,7 +1,41 @@
 .test {
+
+
     display: flex;
     flex-direction: row;
     margin-bottom: 2em;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+}
+
+.vertical {
+    --width_vertical: 75%;
+    width: var(--width_vertical);
+}
+
+.vertical img {
+    width: 15em;
+    height: auto;
+    margin: 0.7em 0 0.6em 0;
+}
+
+.logos-left, .logos-right {
+    /* width: (100% - var(--width_vertical)) / 2; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.logos-left img, .logos-right img {
+    width: 6em;
+    height: auto;
 }
 
 div.left {
