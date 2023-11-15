@@ -3,6 +3,9 @@ import { Player, postNewPlayer } from "../../../api/playersApi";
 import { useScoreboard } from "../../../hooks/useScoreboard"
 import "./DBTable.css"
 
+// TODO + schließt input wieder
+// TODO key s start
+
 export function DBTable() {
     const { playersDB, playersGame, insertPlayer, insertPlayerDatabase, isRunning } = useScoreboard();
     const [hasInput, setHasInput] = useState(false);

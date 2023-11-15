@@ -69,7 +69,7 @@ export function useScoreboard() {
   };
 
   const finish = async () => {
-    console.log(await updatePlayers(playersGame));
+    await updatePlayers(playersGame);
     reset();
   };
 

@@ -8,6 +8,7 @@ export function GameBar() {
     const { reset, startFinishSteps, finishSteps, finish } = useScoreboard();
 
     // TODO DB leer wenn stop game
+    // TODO key f finish, key x cancel, key b back
 
     const startFinish = () => {
         // TODO > 60

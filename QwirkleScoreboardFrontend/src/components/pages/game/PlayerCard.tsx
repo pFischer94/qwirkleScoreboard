@@ -31,7 +31,6 @@ export function PlayerCard({ index, player }: Props) {
         } else {
             setPoints("");
         }
-        console.log("sendTurn finishSteps: " + finishSteps);
     };
 
     const findLastTurnsPoints = () => {
@@ -43,6 +42,13 @@ export function PlayerCard({ index, player }: Props) {
         return turn.pointsAdded;
     }
 
+    const handlePoints = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const val = e.target.value;
+        if (Number(val) || val === "-") {
+            setPoints(e.target.value);
+        }
+    };
+
     return (
         <div className="player-card" style={{
             backgroundColor: index === activeIndex ? finishSteps < 0 ? "var(--brightBG)" : finishSteps > 0 ? "var(--red)" : "" : "",
@@ -52,7 +58,7 @@ export function PlayerCard({ index, player }: Props) {
             {index === activeIndex && finishSteps !== 0 ?
                 <form onSubmit={e => sendTurn(e)}>
                     <label style={{"marginRight" : "2px"}} >Punkte:</label>
-                    <input value={points} autoFocus ref={focusRef} onChange={e => setPoints((e.target.value))}></input>
+                    <input value={points} autoFocus ref={focusRef} onChange={handlePoints}></input>
                 </form> :
                 <form>
                     <label>Punkte: </label>
