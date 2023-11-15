@@ -4,5 +4,5 @@
     justify-content: center;
     gap: 1.3em;
     margin-top: 20.8px;
-    margin-right: 57px;
+    margin-right: var(--stdMargin);
 }

@@ -3,23 +3,23 @@ h3.right {
 }
 
 table.game {
-    margin-left: 57px;
+    margin-left: var(--stdMargin);
     margin-right: auto;
 }
 
 tr {
-    height: 45px;
+    height: var(--trHeight);
 }
 
 tbody.game tr:first-child .name, tbody.game tr:first-child .points, tbody.game tr:first-child .top-zug {
-    background-color: rgba(255, 255, 0, 0.8);
+    background-color: var(--yellow);
     color: black;
 }
 
 tbody.game tr:last-child .name {
-    border-radius: 0 0 0 10px;
+    border-radius: 0 0 0 var(--tdRadius);
 }
 
 tbody.game tr:last-child .top-zug {
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 0 var(--tdRadius) 0;
 }

@@ -33,8 +33,6 @@ export function useTurns() {
             gameBiggestTurn: player.gameBiggestTurn < points ? points : player.gameBiggestTurn,
             totalBiggestTurn: player.totalBiggestTurn < points ? points : player.totalBiggestTurn,
         };
-        // dispatch(deletePlayerGame(player));
-        // dispatch(insertPlayerGame(newPlayer))
         dispatch(updatePlayerGame(newPlayer));
     }
 

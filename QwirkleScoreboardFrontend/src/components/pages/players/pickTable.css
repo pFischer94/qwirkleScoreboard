@@ -5,27 +5,28 @@ div.start {
 
 button.start, button.stop {
     margin-top: 0.6em;
-    margin-right: 57px;
+    margin-right: var(--stdMargin);
     padding: 0;
     width: 8em;
 }
 
 button.start {
-    background-color: green;
+    background-color: var(--green);
+    color: black;
 }
 
 button.stop {
-    background-color: rgba(200, 0, 0, 1);
+    background-color: var(--red);
 }
 
 button.start:hover, button.stop:hover {
-    border-color: rgba(255, 255, 0, 0.8);
+    border-color: var(--yellow);
 }
 
 tbody tr:last-child .name {
-    border-radius: 0 0 0 10px;
+    border-radius: 0 0 0 var(--tdRadius);
 }
 
 tbody tr:last-child .top-zug {
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 0 var(--tdRadius) 0;
 }

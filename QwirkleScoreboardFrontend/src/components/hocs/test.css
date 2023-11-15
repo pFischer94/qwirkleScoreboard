@@ -1,5 +1,22 @@
 .test {
+    --pink: rgba(171,0,172,255);
+    --blue: rgba(0,0,255,255);
+    --green: rgba(0,172,0,255);
+    --yellow: rgba(255,255,0,255);
+    --orange: rgba(255,137,0,255);
+    --red: rgba(255,0,0,255);
+    --darkBG: #242424;
+    --brightBG: rgb(70, 70, 70);
 
+    --borderColor: rgba(180, 180, 180, 1);
+    --borderWidth: 2px;
+    --controlRadius: 20px;
+    --tdRadius: 10px;
+    --stdBorder: 1px solid;
+
+    --trHeight: 45px;
+    --buttonWidth: 55px;
+    --stdMargin: 57px;
 
     display: flex;
     flex-direction: row;
@@ -18,6 +35,18 @@
     width: var(--width_vertical);
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.header h1 {
+    margin: 0;
+}
+
 .vertical img {
     width: 15em;
     height: auto;
@@ -25,7 +54,6 @@
 }
 
 .logos-left, .logos-right {
-    /* width: (100% - var(--width_vertical)) / 2; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +72,7 @@ div.left {
     padding-bottom: 1.3em;
     display: flex;
     justify-content: right;
-    border-right: 1px solid;
+    border-right: var(--stdBorder);
 }
 
 div.right {
@@ -77,8 +105,8 @@ table {
 }
 
 tbody tr {
-    border-bottom: 1px solid;
-    height: 45px;
+    border-bottom: var(--stdBorder);
+    height: var(--trHeight);
 }
 
 tr:last-child {
@@ -105,8 +133,8 @@ tr:last-child {
 }
 
 .updown {
-    width: 55px;
-    background-color: #242424;
+    width: var(--buttonWidth);
+    background-color: var(--darkBG);
 }
 
 td.new {

@@ -2,26 +2,21 @@ import { useNavigate } from "react-router-dom";
 import { Player } from "../../../api/playersApi";
 import { useScoreboard } from "../../../hooks/useScoreboard";
 import "./pickTable.css"
+import { useCallback } from "react";
 
 export function PickTable() {
-    const { playersGame, deletePlayer, swapPlayer, setIsRunning, isRunning } = useScoreboard();
+    const { playersGame, deletePlayer, swapPlayer, setIsRunning, isRunning, reset } = useScoreboard();
     const navigate = useNavigate();
 
-    // const refreshWarning = useCallback((e: BeforeUnloadEvent) => {
-    //     e.preventDefault();
-    //     // localStorage.setItem("isRunning", isRunning + "");
-    //     // localStorage.setItem("activeIndex", activeIndex + "");
-    //     // localStorage.setItem("playersGame", JSON.stringify(playersGame));
-    //     // localStorage.setItem("humbug", "urururu");
-    // }, [/* isRunning, activeIndex, playersGame */]);
+    // TODO refreshWarning
+
+    const refreshWarning = useCallback((e: BeforeUnloadEvent) => {
+        e.preventDefault();
+    }, []);
 
     const startGame = () => {
         setIsRunning(true);
         navigate("/game");
-    }
-
-    const stopGame = () => {
-        setIsRunning(false);
     }
 
     const deselect = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, player: Player) => {
@@ -50,7 +45,6 @@ export function PickTable() {
                 <thead>
                     <tr>
                         <th className="updown"></th>
-                        {/* <th className="id">ID</th> */}
                         <th className="name">Name</th>
                         <th className="points">Punkte</th>
                         <th className="top-zug">Top Zug</th>
@@ -63,7 +57,6 @@ export function PickTable() {
                         return (
                             <tr key={index} className={index % 2 === 0 ? "darker" : "none"}>
                                 <td className="updown">{!isRunning && <button onClick={(e) => deselect(e, p)}>{"←"}</button>}</td>
-                                {/* <td className="id">{p.id}</td> */}
                                 <td className="name">{p.name}</td>
                                 <td className="points">{p.gamePoints}</td>
                                 <td className="top-zug">{p.gameBiggestTurn}</td>
@@ -75,7 +68,7 @@ export function PickTable() {
             </table>
             <div className="start">
                 {playersGame.length > 1 && (isRunning 
-                    ? <button className="stop" onClick={stopGame}>Spiel stoppen</button>
+                    ? <button className="stop" onClick={reset}>Spiel stoppen</button>
                     : <button className="start" onClick={startGame}>Spiel starten</button>)}
             </div>
         </div>

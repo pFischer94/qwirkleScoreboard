@@ -14,19 +14,6 @@ export function PlayerBar() {
             }
         }, []);
 
-    // useEffect(() => {
-    //     const response = localStorage.getItem("activeIndex");
-    //     if (response) {
-    //         setActiveIndex(Number(response));
-    //     } else {
-    //         localStorage.setItem("activeIndex", "0");
-    //     }
-    //     if (activeIndex >= playersGame.length) {
-    //         setActiveIndex(0);
-    //         localStorage.setItem("activeIndex", "0");
-    //     }
-    // }, []);
-
     return (
         <div className="player-bar-container">
             {playersGame.map((p, index) => 

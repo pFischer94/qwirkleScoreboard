@@ -68,7 +68,6 @@ export function DBTable() {
             <table>
                 <thead>
                     <tr>
-                        {/* <th className="id">ID</th> */}
                         <th className="name">Name</th>
                         <th className="points">Punkte</th>
                         <th className="top-zug">Top Zug</th>
@@ -79,7 +78,6 @@ export function DBTable() {
                     {playersDB.map((p, index) => {
                         return (
                             <tr className={index % 2 === 0 ? "darker" : "none"} key={p.id}>
-                                {/* <td className="id">{p.id}</td> */}
                                 <td className="name">{p.name}</td>
                                 <td className="points">{p.totalPoints}</td>
                                 <td className="top-zug">{p.totalBiggestTurn}</td>

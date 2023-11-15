@@ -5,17 +5,21 @@ export function withSplit<P extends JSX.IntrinsicAttributes>(
   Component2: React.ComponentType<P>,
 ) {
     function WithRoot(props: P) {
+        const end = "2.png";
+
         return (
             <main>
                 <div className="horizontal">
                     <div className="logos-left">
-                        <img src="/src/assets/o.png" alt="Qwirkle Scoreboard" />
-                        <img src="/src/assets/b.png" alt="Qwirkle Scoreboard" />
-                        <img src="/src/assets/g.png" alt="Qwirkle Scoreboard" />
+                        <img src={"/src/assets/o" + end} alt="Qwirkle Scoreboard" />
+                        <img src={"/src/assets/b" + end} alt="Qwirkle Scoreboard" />
+                        <img src={"/src/assets/g" + end} alt="Qwirkle Scoreboard" />
                     </div>
                     <div className="vertical">
-                        {/* <h1>Qwirkle Scoreboard</h1> */}
-                        <img src="/src/assets/logo2_trans.png" alt="Qwirkle Scoreboard" />
+                        <div className="header">
+                            <img src="/src/assets/logo2_trans.png" alt="Qwirkle Scoreboard" />
+                            <h1>Scoreboard</h1>
+                        </div>
                         <div className="test">
                             <div className="left">
                                 <Component1 {...props}/>
@@ -26,9 +30,9 @@ export function withSplit<P extends JSX.IntrinsicAttributes>(
                         </div>
                     </div>
                     <div className="logos-right">
-                        <img src="/src/assets/v.png" alt="Qwirkle Scoreboard" />
-                        <img src="/src/assets/y.png" alt="Qwirkle Scoreboard" />
-                        <img src="/src/assets/r.png" alt="Qwirkle Scoreboard" />
+                        <img src={"/src/assets/p" + end} alt="Qwirkle Scoreboard" />
+                        <img src={"/src/assets/y" + end} alt="Qwirkle Scoreboard" />
+                        <img src={"/src/assets/r" + end} alt="Qwirkle Scoreboard" />
                     </div>
                 </div>
             </main>

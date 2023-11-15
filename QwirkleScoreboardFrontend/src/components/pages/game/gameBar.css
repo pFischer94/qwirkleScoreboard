@@ -4,34 +4,30 @@ div.game-bar-container {
 }
 
 div.control {
-    --radius: 20px;
-    --colorValue: 180;
-    --colorBorders: rgb(var(--colorValue), var(--colorValue), var(--colorValue), 100%);
-    --widthBorders: 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2em;
-    margin-left: 57px;
+    margin-left: var(--stdMargin);
+}
+
+.control button {
+    border-color: var(--borderColor);
+    border-width: var(--borderWidth);
+    border-style: solid;
 }
 
 button.back {
-    border-radius: var(--radius) 0 0 var(--radius);
-    border: var(--widthBorders) solid var(--colorBorders);
-    border: var(--widthBorders) solid var(--colorBorders);
-    background-color: blue;
+    border-radius: var(--controlRadius) 0 0 var(--controlRadius);
+    background-color: var(--blue);
 }
 
 button.cancel {
     border-radius: 0 0 0 0;
-    border: var(--widthBorders) solid var(--colorBorders);
-    border: var(--widthBorders) solid var(--colorBorders);
-    background-color: red;
+    background-color: var(--red);
 }
 
 button.finish {
-    border-radius: 0 var(--radius) var(--radius) 0;
-    border: var(--widthBorders) solid var(--colorBorders);
-    border: var(--widthBorders) solid var(--colorBorders);
-    background-color: green;
+    border-radius: 0 var(--controlRadius) var(--controlRadius) 0;
+    background-color: var(--green);
 }

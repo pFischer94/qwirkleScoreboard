@@ -9,8 +9,6 @@ type Props = {
     player: Player;
 };
 
-// --var
-
 export function PlayerCard({ index, player }: Props) {
     const [points, setPoints] = useState<string>("");
     const { activeIndex, incrementActiveIndex, finishSteps, decrementFinishSteps } = useScoreboard();
@@ -47,7 +45,7 @@ export function PlayerCard({ index, player }: Props) {
 
     return (
         <div className="player-card" style={{
-            backgroundColor: index === activeIndex ? finishSteps < 0 ? "rgb(70, 70, 70)" : finishSteps > 0 ? "rgb(200, 0, 0)" : "" : "",
+            backgroundColor: index === activeIndex ? finishSteps < 0 ? "var(--brightBG)" : finishSteps > 0 ? "var(--red)" : "" : "",
             transform: index === activeIndex && finishSteps !== 0 ? "scale(1.15)" : '',
         }}>
             <h2>{player.name}</h2>

@@ -7,6 +7,8 @@ export function GameBar() {
     const { undoLastTurn, turns } = useTurns();
     const { reset, startFinishSteps, finishSteps, finish } = useScoreboard();
 
+    // TODO DB leer wenn stop game
+
     const startFinish = () => {
         // TODO > 60
         if (turns.length > 6) {
@@ -22,7 +24,6 @@ export function GameBar() {
         <div className="game-bar-container">
             <div className="game-table-container">
                 <GameTable/>
-                {/* <button onClick={() => navigate("/")} className="stop">■</button>‚ */}
             </div>
             <div className="control">
                 <div>

@@ -16,19 +16,19 @@ button.new {
 }
 
 tr.darker {
-    background-color: rgb(50, 50, 50);
+    background-color: var(--brightBG);
 }
 
 tbody tr:first-child .name {
-    border-radius: 10px 0 0 0;
+    border-radius: var(--tdRadius) 0 0 0;
 }
 
 tbody tr:first-child .top-zug {
-    border-radius: 0 10px 0 0;
+    border-radius: 0 var(--tdRadius) 0 0;
 }
 
 tbody.db tr:first-child .id, tbody.db tr:first-child .name, tbody.db tr:first-child .points, tbody.db tr:first-child .top-zug {
-    background-color: rgba(255, 255, 0, 0.8);
+    background-color: var(--yellow);
     color: black;
 }
 
@@ -37,5 +37,5 @@ div.buffer {
 }
 
 tbody.db tr:last-child td:first-child {
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 var(--tdRadius) var(--tdRadius);
 }
