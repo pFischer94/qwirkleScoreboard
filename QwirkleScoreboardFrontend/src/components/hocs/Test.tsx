@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./test.css"
 
 export function withSplit<P extends JSX.IntrinsicAttributes>(
@@ -6,6 +7,10 @@ export function withSplit<P extends JSX.IntrinsicAttributes>(
 ) {
     function WithRoot(props: P) {
         const end = "2.png";
+
+        useEffect(() => {
+            window.onbeforeunload = () => "";
+        });
 
         return (
             <main>

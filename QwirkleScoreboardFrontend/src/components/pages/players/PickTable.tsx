@@ -2,19 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { Player } from "../../../api/playersApi";
 import { useScoreboard } from "../../../hooks/useScoreboard";
 import "./pickTable.css"
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 export function PickTable() {
     const { playersGame, deletePlayer, swapPlayer, setIsRunning, isRunning, reset } = useScoreboard();
     const navigate = useNavigate();
 
     const hasDownArrows = false;
-
-    // TODO refreshWarning
-
-    const refreshWarning = useCallback((e: BeforeUnloadEvent) => {
-        e.preventDefault();
-    }, []);
 
     const startGame = () => {
         setIsRunning(true);
