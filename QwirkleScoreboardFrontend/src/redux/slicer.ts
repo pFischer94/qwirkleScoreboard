@@ -29,7 +29,7 @@ const shopSlicer = createSlice({
             return state;
         },
         resetGame: (state) => {
-            state = initialState;
+            state = { ...initialState, playersDB: state.playersDB };
             return state;
         },
         addTurn: (state, action: PayloadAction<Turn>) => {

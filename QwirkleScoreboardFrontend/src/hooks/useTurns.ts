@@ -37,21 +37,23 @@ export function useTurns() {
     }
 
     const undoLastTurn = () => {
-        const turnToUndo = turns[turns.length - 1];
-        const player = turnToUndo.player;
-        const newPlayer: Player = {
-            id: player.id,
-            name: player.name,
-            gamePoints: player.gamePoints,
-            totalPoints: player.totalPoints,
-            turns: player.turns,
-            gameBiggestTurn: turnToUndo.previousBiggestTurnGame,
-            totalBiggestTurn: turnToUndo.previousBiggestTurnDB,
-        };
-        dispatch(updatePlayerGame(newPlayer));
-        dispatch(undoTurn());
-        decrementActiveIndex();
-        incrementFinishSteps();
+        if (turns.length > 0) {
+            const turnToUndo = turns[turns.length - 1];
+            const player = turnToUndo.player;
+            const newPlayer: Player = {
+                id: player.id,
+                name: player.name,
+                gamePoints: player.gamePoints,
+                totalPoints: player.totalPoints,
+                turns: player.turns,
+                gameBiggestTurn: turnToUndo.previousBiggestTurnGame,
+                totalBiggestTurn: turnToUndo.previousBiggestTurnDB,
+            };
+            dispatch(updatePlayerGame(newPlayer));
+            dispatch(undoTurn());
+            decrementActiveIndex();
+            incrementFinishSteps();
+        }
     };
 
     return { turns, executeTurn, undoLastTurn };

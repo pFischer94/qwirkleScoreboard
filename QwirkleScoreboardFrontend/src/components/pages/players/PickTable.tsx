@@ -2,11 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { Player } from "../../../api/playersApi";
 import { useScoreboard } from "../../../hooks/useScoreboard";
 import "./pickTable.css"
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 export function PickTable() {
     const { playersGame, deletePlayer, swapPlayer, setIsRunning, isRunning, reset } = useScoreboard();
     const navigate = useNavigate();
+
+    const hasDownArrows = false;
 
     // TODO refreshWarning
 
@@ -34,7 +36,26 @@ export function PickTable() {
         swapPlayer(index + 1);
     }
 
-    const hasDownArrows = false;
+    useEffect(() => {
+        const keyHandler = (e: KeyboardEvent) => {
+            if ((e.key === "s" || e.key === "S")) {
+                e.preventDefault();
+                if (isRunning) {
+                    reset();
+                } else {
+                    startGame();
+                }
+            }
+        };
+
+        if (playersGame.length > 1) {
+            document.addEventListener("keypress", keyHandler);
+        }
+
+        return () => {
+          document.removeEventListener("keypress", keyHandler);
+        };
+    }, [playersGame]);
     
     return (
         <div className="table-container">

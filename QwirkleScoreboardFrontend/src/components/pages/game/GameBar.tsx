@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useScoreboard } from "../../../hooks/useScoreboard";
 import { useTurns } from "../../../hooks/useTurns";
 import { GameTable } from "./GameTable";
@@ -7,19 +8,53 @@ export function GameBar() {
     const { undoLastTurn, turns } = useTurns();
     const { reset, startFinishSteps, finishSteps, finish } = useScoreboard();
 
-    // TODO DB leer wenn stop game
-    // TODO key f finish, key x cancel, key b back
-
     const startFinish = () => {
         // TODO > 60
-        if (turns.length > 6) {
+        if (turns.length > -1) {
             if (finishSteps <= -1) {
                 startFinishSteps();
             } else if (finishSteps === 0) {
+                document.removeEventListener("keypress", keyHandlerF);
                 finish();
             }
         }
     };
+
+    const keyHandlerF = (e: KeyboardEvent) => {
+        if (e.key === "f" || e.key === "F") {
+            e.preventDefault();
+            startFinish();
+        }
+    };
+
+    const keyHandlerX = (e: KeyboardEvent) => {
+        if (e.key === "x" || e.key === "X") {
+            e.preventDefault();
+            document.removeEventListener("keypress", keyHandlerF);
+            reset();
+        }
+    };
+
+    const keyHandlerB = (e: KeyboardEvent) => {
+        if (e.key === "b" || e.key === "B") {
+            e.preventDefault();
+            undoLastTurn();
+        }
+    };
+
+    // TODO issues in dev tools
+
+    useEffect(() => {
+        document.addEventListener("keypress", keyHandlerF);
+        document.addEventListener("keypress", keyHandlerX);
+        document.addEventListener("keypress", keyHandlerB);
+
+        return () => {
+            document.removeEventListener("keypress", keyHandlerF);
+            document.removeEventListener("keypress", keyHandlerX);
+            document.removeEventListener("keypress", keyHandlerB);
+        };
+    }, [turns]);
 
     return (
         <div className="game-bar-container">

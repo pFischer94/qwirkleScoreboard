@@ -3,9 +3,6 @@ import { Player, postNewPlayer } from "../../../api/playersApi";
 import { useScoreboard } from "../../../hooks/useScoreboard"
 import "./DBTable.css"
 
-// TODO + schließt input wieder
-// TODO key s start
-
 export function DBTable() {
     const { playersDB, playersGame, insertPlayer, insertPlayerDatabase, isRunning } = useScoreboard();
     const [hasInput, setHasInput] = useState(false);
@@ -23,11 +20,10 @@ export function DBTable() {
 
     useEffect(() => {
         const keyHandler = (e: KeyboardEvent) => {
-            if ((e.key === "a" || e.key === "A" || e.key === "+") && !hasInput) {
+            if ((e.key === "a" || e.key === "A" || e.key === "+")) {
                 e.preventDefault();
-                setHasInput(true);
-                setNewPlayerName("");
-                document.removeEventListener("keypress", keyHandler);
+                setHasInput(!hasInput);
+                setNewPlayerName(""); 
             }
         };
         document.addEventListener("keypress", keyHandler);
@@ -35,7 +31,7 @@ export function DBTable() {
         return () => {
           document.removeEventListener("keypress", keyHandler);
         };
-      }, [hasInput]);
+    }, [hasInput]);
 
     const select = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, player: Player) => {
         e.preventDefault();
