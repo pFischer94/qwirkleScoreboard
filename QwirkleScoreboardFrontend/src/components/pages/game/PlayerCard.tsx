@@ -57,12 +57,12 @@ export function PlayerCard({ index, player }: Props) {
             <h2>{player.name}</h2>
             {index === activeIndex && finishSteps !== 0 ?
                 <form onSubmit={e => sendTurn(e)}>
-                    <label style={{"marginRight" : "2px"}} >Punkte:</label>
-                    <input value={points} autoFocus ref={focusRef} onChange={handlePoints}></input>
+                    <label htmlFor="points" style={{"marginRight" : "2px"}} >Punkte:</label>
+                    <input id="points" value={points} autoFocus ref={focusRef} onChange={handlePoints}></input>
                 </form> :
                 <form>
-                    <label>Punkte: </label>
-                    <label>{findLastTurnsPoints()}</label>
+                    <span>Punkte: </span>
+                    <span>{findLastTurnsPoints()}</span>
                 </form>
             }
         </div>

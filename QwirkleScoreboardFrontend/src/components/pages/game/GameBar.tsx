@@ -42,8 +42,6 @@ export function GameBar() {
         }
     };
 
-    // TODO issues in dev tools
-
     useEffect(() => {
         document.addEventListener("keypress", keyHandlerF);
         document.addEventListener("keypress", keyHandlerX);
