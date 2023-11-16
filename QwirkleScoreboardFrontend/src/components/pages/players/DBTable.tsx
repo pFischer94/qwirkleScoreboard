@@ -20,7 +20,7 @@ export function DBTable() {
 
     useEffect(() => {
         const keyHandler = (e: KeyboardEvent) => {
-            if ((e.key === "a" || e.key === "A" || e.key === "+")) {
+            if (e.key === "+") {
                 e.preventDefault();
                 setHasInput(!hasInput);
                 setNewPlayerName(""); 
