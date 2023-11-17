@@ -4,6 +4,8 @@ import { useTurns } from "../../../hooks/useTurns";
 import { GameTable } from "./GameTable";
 import "./gameBar.css"
 
+// TODO Spielerstatistiken
+
 export function GameBar() {
     const { undoLastTurn, turns } = useTurns();
     const { reset, startFinishSteps, finishSteps, finish } = useScoreboard();
@@ -11,7 +13,7 @@ export function GameBar() {
     const startFinish = () => {
         // TODO > 60
         if (turns.length > -1) {
-            if (finishSteps <= -1) {
+            if (finishSteps <= -1 && confirm("Soll das Spiel wirklich abgeschlossen werden?")) {
                 startFinishSteps();
             } else if (finishSteps === 0) {
                 document.removeEventListener("keypress", keyHandlerF);

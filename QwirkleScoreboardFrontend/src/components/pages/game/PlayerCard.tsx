@@ -23,13 +23,17 @@ export function PlayerCard({ index, player }: Props) {
     const sendTurn = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const num = Number(points);
-        if ((num >= 0 && num < 85 && finishSteps <= -1) || (finishSteps > 0 && num >= -6 && num < 0)) {
+        if (points !== "" && (num >= 0 && num < 85 && finishSteps <= -1) || (finishSteps > 0 && num >= -6 && num < 0)) {
             setPoints("");
             incrementActiveIndex();
             decrementFinishSteps();
             executeTurn(player, num);
         } else {
-            setPoints("");
+            if (finishSteps <= -1) {
+                setPoints("");
+            } else {
+                setPoints("-");
+            }
         }
     };
 
@@ -44,13 +48,20 @@ export function PlayerCard({ index, player }: Props) {
 
     const handlePoints = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = e.target.value;
-        if (Number(val) || val === "-") {
-            setPoints(e.target.value);
+        const num = Number(val);
+        if (finishSteps <= -1) {
+            if ((num >= 0 && num <= 84) || val === "" || val === "0") {
+                setPoints(e.target.value);
+            }
+        } else {
+            if ((num >= -6 && num <= -1) || val === "-") {
+                setPoints(e.target.value);
+            }
         }
     };
 
     return (
-        <div className="player-card" style={{
+        <div className="player-card"  style={{
             backgroundColor: index === activeIndex ? finishSteps < 0 ? "var(--brightBG)" : finishSteps > 0 ? "var(--red)" : "" : "",
             transform: index === activeIndex && finishSteps !== 0 ? "scale(1.15)" : '',
         }}>
