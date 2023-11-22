@@ -87,8 +87,8 @@ export function DBTable() {
                             <td colSpan={3}>
                                 {hasInput &&
                                     <form onSubmit={handleAddNewPlayerButton}>
-                                        <input name="name" id="name" type="text" autoFocus placeholder="Name" value={newPlayer.name} onChange={e => setNewPlayerName(e.currentTarget.value)}></input>
-                                        <label>hinzufügen</label>
+                                        <input name="name" id="name" type="text" autoComplete="name" autoFocus placeholder="Name" value={newPlayer.name} onChange={e => setNewPlayerName(e.currentTarget.value)}></input>
+                                        <label htmlFor="name">hinzufügen</label>
                                     </form>
                                 }
                             </td>
