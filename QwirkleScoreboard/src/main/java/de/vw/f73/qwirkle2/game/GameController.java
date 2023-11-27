@@ -21,7 +21,7 @@ public class GameController {
         this.gameService.start();
     }
 
-    @GetMapping("/startFronend")
+    @GetMapping("/startFrontend")
     public void startFrontend() {
 
     }

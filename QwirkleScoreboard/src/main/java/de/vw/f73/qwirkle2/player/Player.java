@@ -1,6 +1,7 @@
 package de.vw.f73.qwirkle2.player;
 
 import de.vw.f73.qwirkle2.move.Move;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,6 +14,7 @@ public class Player implements Comparable<Player> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(nullable = false)
     private String name;
     @Transient
     private int gamePoints;
