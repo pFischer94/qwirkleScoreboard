@@ -11,5 +11,10 @@ osascript -e 'tell application "Terminal" to activate' \
   -e 'tell application "Terminal" to do script "mvn spring-boot:run" in front window' \
 
 sleep 5
-/usr/bin/osascript -e 'tell application "Google Chrome"' -e "make new window" -e "activate" -e 'tell application "System Events"' -e 'keystroke "f" using {control down, command down}' -e "end tell" -e "end tell"
+
+osascript -e 'tell application "Google Chrome"' \
+    -e 'make new window' \
+    -e 'activate' \
+    -e 'tell application "System Events" to keystroke "f" using {control down, command down}' \
+  -e 'end tell'
 open http://localhost:5173/

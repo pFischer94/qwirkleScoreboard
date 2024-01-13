@@ -14,8 +14,9 @@
 	<name>Qwirkle2</name>
 	<description>qwirkle2 wird realisiert</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>20</java.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -82,6 +83,36 @@
 
 	<build>
 		<plugins>
+			<plugin> 
+				<groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-dependency-plugin</artifactId> 
+				<executions>
+			        <execution>
+			            <id>copy-dependencies</id>
+			            <phase>prepare-package</phase>
+			            <goals>
+			                <goal>copy-dependencies</goal>
+			            </goals>
+			            <configuration>
+			                <outputDirectory>${project.build.directory}/libs</outputDirectory> 
+		                </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-jar-plugin</artifactId> 
+				<configuration>
+			        <archive>
+			            <manifest>
+							<addClasspath>true</addClasspath> 
+							<classpathPrefix>libs/</classpathPrefix> 
+							<mainClass>de.vw.f73.qwirkle2.Qwirkle2Application</mainClass>
+			           </manifest>
+			        </archive>
+			    </configuration>
+			</plugin>
+			
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
