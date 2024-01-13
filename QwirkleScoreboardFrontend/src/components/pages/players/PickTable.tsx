@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Player } from "../../../api/playersApi";
 import { useScoreboard } from "../../../hooks/useScoreboard";
 import "./pickTable.css"
 import { useEffect } from "react";
+import { Player } from "../../../api/playersApi";
 
 export function PickTable() {
     const { playersGame, deletePlayer, swapPlayer, setIsRunning, isRunning, reset } = useScoreboard();
